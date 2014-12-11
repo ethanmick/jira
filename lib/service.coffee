@@ -4,7 +4,7 @@
 # http://host:port/context/rest/api-name/api-version/resource-name
 Rest = require 'restler'
 Q = require 'q'
-URL_EXTENSION = '/jira/rest/api/2/'
+URL_EXTENSION = '/rest/api/2/'
 
 class Service
 
@@ -19,7 +19,7 @@ class Service
       return this
     , null,
       project_list: ->
-        @get('project')
+        @get('project?expand=description,lead,url,projectKeys')
       list: ->
         @get('issues')
     @api = new JiraService(user, pass, host)

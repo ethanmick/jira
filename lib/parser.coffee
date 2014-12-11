@@ -6,6 +6,7 @@ nconf = require 'nconf'
 url = require 'url'
 Q = require 'q'
 Service = require './service'
+colors = require 'colors'
 
 exit = (msg) ->
   console.log msg if msg
@@ -48,7 +49,7 @@ nconf.save (err)->
   exit('No base url has been set yet! Please use $ jira --set-url https://example.atlassian.net') unless baseurl
   usage() unless command
 
+  console.log 'Fetching...'.green
   jira = new Service(user, pass, baseurl)
-  console.log 'jira', jira
   jira[command]().then (data)->
     console.log data

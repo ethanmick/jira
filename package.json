@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "coffee-script": "1.8.0",
+    "colors": "1.0.3",
     "nconf": "0.7.1",
     "q": "1.1.2",
     "restler": "3.2.2"
